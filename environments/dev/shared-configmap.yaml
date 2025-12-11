@@ -24,6 +24,10 @@ data:
   REDIS_HOST: "redis-master.development.svc.cluster.local"
   REDIS_PORT: "6379"
   REDIS_PASSWORD: "bd64deb8c4154269bb01c6d3b8b680c0"
+  # Go struct notation (for libraries that use dot notation)
+  Redis.Host: "redis-master.development.svc.cluster.local"
+  Redis.Port: "6379"
+  Redis.Password: "bd64deb8c4154269bb01c6d3b8b680c0"
   
   # Collections
   ISPB_NOTIFICATION_COLLECTION_NAME: "ispb_notifications"
@@ -32,6 +36,7 @@ data:
   
   # BACEN
   BACEN_ISPB: "00038166"
+  BacenIspb: "00038166"
   
   # Other
   IS_GZIP_REQUIRED: "0"
