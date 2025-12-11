@@ -21,7 +21,7 @@ data:
   MONGO_DATABASE: "simulator-spi"
   
   # Redis Configuration
-  REDIS_HOST: "redis.dev-infra-redis.svc.cluster.local"
+  REDIS_HOST: "redis-master.development.svc.cluster.local"
   REDIS_PORT: "6379"
   REDIS_PASSWORD: "bd64deb8c4154269bb01c6d3b8b680c0"
   
