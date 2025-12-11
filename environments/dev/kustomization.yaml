@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../../base
   - shared-configmap.yaml
+  - mongo-secret.yaml
 
 namespace: simulator-spi
 

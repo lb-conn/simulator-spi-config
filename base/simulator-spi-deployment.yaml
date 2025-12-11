@@ -30,6 +30,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: shared-config
+            - secretRef:
+                name: mongo-secret
           ports:
             - name: http
               containerPort: 3000

@@ -5,7 +5,34 @@ metadata:
   name: shared-config
   namespace: simulator-spi
 data:
+  # Application Settings
+  LOG_LEVEL: "info"
+  HTTP_PORT: "8080"
+  METRICS_PORT: "3000"
+  
+  # Environment
+  ENVIRONMENT: "dev"
   APP_ENV: development
   APP_HOST: "0.0.0.0"
   APP_PORT: "3000"
   SERVER_PORT: "3000"
+  
+  # MongoDB Configuration (MONGO_URL and MONGO_DB come from mongo-secret)
+  MONGO_DATABASE: "simulator-spi"
+  
+  # Redis Configuration
+  REDIS_HOST: "redis.dev-infra-redis.svc.cluster.local"
+  REDIS_PORT: "6379"
+  REDIS_PASSWORD: "bd64deb8c4154269bb01c6d3b8b680c0"
+  
+  # Collections
+  ISPB_NOTIFICATION_COLLECTION_NAME: "ispb_notifications"
+  ISPB_ORG_COLLECTION_NAME: "ispb_orgs"
+  BANK_ACCOUNT_COLLECTION_NAME: "bank_accounts"
+  
+  # BACEN
+  BACEN_ISPB: "00038166"
+  
+  # Other
+  IS_GZIP_REQUIRED: "0"
+  ROOT_DIR_PATH: "/app"
