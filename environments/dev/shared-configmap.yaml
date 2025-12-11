@@ -21,11 +21,11 @@ data:
   MONGO_DATABASE: "simulator-spi"
   
   # Redis Configuration
-  REDIS_HOST: "redis-master.development.svc.cluster.local"
+  REDIS_HOST: "redis-service.redis.svc.cluster.local"
   REDIS_PORT: "6379"
   REDIS_PASSWORD: "bd64deb8c4154269bb01c6d3b8b680c0"
   # Go struct notation (for libraries that use dot notation)
-  Redis.Host: "redis-master.development.svc.cluster.local"
+  Redis.Host: "redis-service.redis.svc.cluster.local"
   Redis.Port: "6379"
   Redis.Password: "bd64deb8c4154269bb01c6d3b8b680c0"
   
