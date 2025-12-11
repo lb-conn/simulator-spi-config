@@ -1,0 +1,52 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+  - shared-configmap.yaml
+
+namespace: simulator-spi
+
+replicas:
+  - name: simulator-spi
+    count: 2
+
+images:
+  - name: ghcr.io/lb-conn/simulator-spi/spi
+    newTag: "latest"
+
+patches:
+  - target:
+      kind: Deployment
+      name: simulator-spi
+    patch: |-
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          role: prd
+      - op: replace
+        path: /spec/template/spec/imagePullSecrets/0/name
+        value: regcred
+      - op: add
+        path: /spec/template/metadata/labels/prd.londonbridge.service
+        value: simulator-spi
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/requests/cpu
+        value: 200m
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/requests/memory
+        value: 512Mi
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/limits/cpu
+        value: 500m
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/limits/memory
+        value: 1Gi
+  - target:
+      kind: Service
+      name: simulator-spi
+    patch: |-
+      - op: add
+        path: /spec/selector/prd.londonbridge.service
+        value: simulator-spi

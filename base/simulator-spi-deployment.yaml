@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simulator-spi
+  labels:
+    app: simulator-spi
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: simulator-spi
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: simulator-spi
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: simulator-spi
+          image: ghcr.io/lb-conn/simulator-spi/spi:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: shared-config
+          ports:
+            - name: http
+              containerPort: 3000
+          resources:
+            requests:
+              cpu: 50m
+              memory: 200Mi
+            limits:
+              cpu: 200m
+              memory: 500Mi

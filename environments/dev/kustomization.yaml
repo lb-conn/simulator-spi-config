@@ -1,0 +1,30 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+  - shared-configmap.yaml
+
+namespace: simulator-spi
+
+replicas:
+  - name: simulator-spi
+    count: 1
+
+images:
+  - name: ghcr.io/lb-conn/simulator-spi/spi
+    newTag: "latest"
+
+patches:
+  - target:
+      kind: Deployment
+      name: simulator-spi
+    patch: |-
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          role: dev
+      - op: replace
+        path: /spec/template/spec/imagePullSecrets/0/name
+        value: github-container-registry
