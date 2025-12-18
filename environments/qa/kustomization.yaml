@@ -20,6 +20,11 @@ patches:
       - op: add
         path: /spec/template/metadata/labels/qa.londonbridge.service
         value: simulator-spi
+      - op: add
+        path: /spec/template/spec/containers/0/envFrom/-
+        value:
+          secretRef:
+            name: mongo-secret
       - op: replace
         path: /spec/template/spec/containers/0/resources/requests/cpu
         value: 100m
