@@ -30,6 +30,9 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/resources/requests/memory
         value: 300Mi
+      - op: replace
+        path: /spec/template/spec/imagePullSecrets/0/name
+        value: github-container-registry
   - target:
       kind: Service
       name: simulator-spi
