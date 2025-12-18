@@ -9,3 +9,22 @@ data:
   APP_HOST: "0.0.0.0"
   APP_PORT: "3000"
   SERVER_PORT: "3000"
+  BACEN_ISPB: '00038166'
+  BANK_ACCOUNT_COLLECTION_NAME: bank_accounts
+  BacenIspb: '00038166'
+  ENVIRONMENT: dev
+  HTTP_PORT: '8080'
+  ISPB_NOTIFICATION_COLLECTION_NAME: ispb_notifications
+  ISPB_ORG_COLLECTION_NAME: ispb_orgs
+  IS_GZIP_REQUIRED: '0'
+  LOG_LEVEL: info
+  METRICS_PORT: '3000'
+  MONGO_DATABASE: simulator-spi
+  REDIS_HOST: redis.qa-infra.svc.cluster.local
+  REDIS_PASSWORD: bd64deb8c4154269bb01c6d3b8b680c0
+  REDIS_PORT: '6379'
+  ROOT_DIR_PATH: /app
+  Redis.Host: redis.qa-infra.svc.cluster.local
+  Redis.Password: bd64deb8c4154269bb01c6d3b8b680c0
+  Redis.Port: '6379'
+
