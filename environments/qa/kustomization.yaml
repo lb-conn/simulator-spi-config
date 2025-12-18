@@ -14,7 +14,7 @@ replicas:
 
 images:
   - name: ghcr.io/lb-conn/simulator-spi/spi
-    newTag: "latest"
+    newTag: "sha256:56a89df27762b50ccb6db0c0718c1c3c432799e2d9848b5d5ceb70abe607af70"
 
 patchesJson6902:
   - target:
