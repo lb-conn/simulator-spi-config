@@ -4,13 +4,14 @@ kind: Kustomization
 resources:
   - ../../base
   - shared-configmap.yaml
+  - mongo-secret.yaml
 namespace: simulator-spi
 replicas:
   - name: simulator-spi
     count: 1
 images:
   - name: ghcr.io/lb-conn/simulator-spi/spi
-    newTag: "latest"
+    newTag: "branch.feat.emulating-transactions"
 patches:
   - target:
       kind: Deployment
@@ -25,6 +26,9 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/resources/requests/memory
         value: 300Mi
+      - op: replace
+        path: /spec/template/spec/imagePullSecrets/0/name
+        value: github-container-registry
   - target:
       kind: Service
       name: simulator-spi
