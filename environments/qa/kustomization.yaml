@@ -16,23 +16,21 @@ images:
   - name: ghcr.io/lb-conn/simulator-spi/spi
     newTag: "latest"
 
-patches:
+patchesJson6902:
   - target:
+      group: apps
+      version: v1
       kind: Deployment
       name: simulator-spi
     patch: |-
-      - op: add
-        path: /spec/template/metadata/labels/qa.londonbridge.service
-        value: simulator-spi
-      - op: replace
-        path: /spec/template/spec/containers/0/resources/requests/cpu
-        value: 100m
-      - op: replace
-        path: /spec/template/spec/containers/0/resources/requests/memory
-        value: 300Mi
-      - op: replace
-        path: /spec/template/spec/imagePullSecrets/0/name
-        value: github-container-registry
+      [
+        {"op":"replace","path":"/spec/template/spec/imagePullSecrets/0/name","value":"github-container-registry"},
+        {"op":"add","path":"/spec/template/metadata/labels/qa.londonbridge.service","value":"simulator-spi"},
+        {"op":"replace","path":"/spec/template/spec/containers/0/resources/requests/cpu","value":"100m"},
+        {"op":"replace","path":"/spec/template/spec/containers/0/resources/requests/memory","value":"300Mi"}
+      ]
+
+patches:
   - target:
       kind: Service
       name: simulator-spi
