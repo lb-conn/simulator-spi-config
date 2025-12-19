@@ -15,7 +15,7 @@ replicas:
 
 images:
   - name: ghcr.io/lb-conn/simulator-spi/spi
-    newTag: "branch.feat.emulating-transactions"
+    newTag: "latest"
 
 patches:
   - target:
