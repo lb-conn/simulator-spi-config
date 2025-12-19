@@ -25,7 +25,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: simulator-spi
-          image: ghcr.io/lb-conn/simulator-spi/spi:latest
+          image: ghcr.io/lb-conn/simulator-spi/spi:10a1ae9b
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
