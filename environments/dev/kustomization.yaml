@@ -15,7 +15,7 @@ replicas:
 
 images:
   - name: ghcr.io/lb-conn/simulator-spi/spi
-    newTag: "latest"
+    newTag: "10a1ae9b"
 
 patches:
   - target:
