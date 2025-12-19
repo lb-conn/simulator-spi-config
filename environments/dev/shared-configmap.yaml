@@ -5,7 +5,7 @@ metadata:
   name: shared-config
   namespace: simulator-spi
 data:
-  APP_ENV: development
+  APP_ENV: "local"
   APP_HOST: "0.0.0.0"
   APP_PORT: "3000"
   SERVER_PORT: "3000"
